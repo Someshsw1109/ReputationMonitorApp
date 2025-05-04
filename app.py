@@ -1,0 +1,40 @@
+from flask import Flask, render_template
+import praw
+from textblob import TextBlob
+import pandas as pd
+
+app = Flask(__name__)
+
+def scrape_reddit(keyword, limit):
+    reddit = praw.Reddit(
+        client_id='Eyx8ZYwHahjrJHBeX4auNQ',
+        client_secret='JlrlZyBBd1Jj_XvS569ikea5-dzHeg',
+        user_agent='ReputationMonitorApp by /u/Lonely-Discount-6781'
+    )
+    posts = []
+    for submission in reddit.subreddit("all").search(keyword, limit=limit):
+        posts.append(submission.title + " " + submission.selftext)
+    return posts
+
+def analyze_sentiment(texts):
+    sentiment_data = []
+    for text in texts:
+        score = TextBlob(text).sentiment.polarity
+        sentiment = 'Positive' if score > 0.1 else 'Negative' if score < -0.1 else 'Neutral'
+        sentiment_data.append((text, round(score, 2), sentiment))
+    return pd.DataFrame(sentiment_data, columns=['text', 'polarity', 'sentiment'])
+
+@app.route('/')
+def dashboard():
+    keyword = "OpenAI"
+    reddit = scrape_reddit(keyword, 30)
+    all_texts = reddit
+    df = analyze_sentiment(all_texts)
+
+    sentiment_counts = df['sentiment'].value_counts().to_dict()
+    mentions = df.to_dict(orient='records')
+
+    return render_template("dashboard.html", sentiment_counts=sentiment_counts, mentions=mentions, keyword=keyword)
+
+if __name__ == "__main__":
+    app.run(debug=True)

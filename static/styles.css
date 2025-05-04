@@ -1,0 +1,46 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f8;
+  }
+  
+  .sentiment-card {
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .sentiment-card.positive {
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+  }
+  
+  .sentiment-card.negative {
+    background: linear-gradient(135deg, #E53935, #EF5350);
+  }
+  
+  .sentiment-card.neutral {
+    background: linear-gradient(135deg, #FFC107, #FFD54F);
+  }
+  
+  .border-positive {
+    border-color: #4CAF50 !important;
+  }
+  
+  .border-negative {
+    border-color: #E53935 !important;
+  }
+  
+  .border-neutral {
+    border-color: #FFC107 !important;
+  }
+  
+  .bg-positive {
+    background-color: #4CAF50 !important;
+  }
+  
+  .bg-negative {
+    background-color: #E53935 !important;
+  }
+  
+  .bg-neutral {
+    background-color: #FFC107 !important;
+  }
+  
