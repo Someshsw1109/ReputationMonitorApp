@@ -30,7 +30,7 @@ A powerful Flask-based web application that scrapes Reddit posts for a given key
 
 ```bash
 git clone https://github.com/Someshsw1109/ReputationMonitorApp.git
-cd reddit-sentiment-dashboard
+cd ReputationMonitorApp
 
 
 ### 2. Create a virtual environment (optional but recommended)
@@ -62,3 +62,7 @@ python app.py
 [Somesh Raj]
 GitHub: @Someshsw1109
 Reddit: /u/Lonely-Discount-6781
+
+---
+
+Note - Use Python version - 3.11(Strongly recommended)
