@@ -1,0 +1,5 @@
+Flask
+praw
+textblob
+pandas
+gunicorn
