@@ -7,9 +7,9 @@ app = Flask(__name__)
 
 def scrape_reddit(keyword, limit):
     reddit = praw.Reddit(
-        client_id='Eyx8ZYwHahjrJHBeX4auNQ',
-        client_secret='JlrlZyBBd1Jj_XvS569ikea5-dzHeg',
-        user_agent='ReputationMonitorApp by /u/Lonely-Discount-6781'
+        client_id='CLIENT_ID',
+        client_secret='CLIENT_SECRET',
+        user_agent='USER_AGENT'
     )
     posts = []
     for submission in reddit.subreddit("all").search(keyword, limit=limit):
