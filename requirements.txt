@@ -1,5 +1,5 @@
-Flask
-praw
-textblob
-pandas
-gunicorn
+Flask==2.3.2
+praw==7.7.1
+textblob==0.17.1
+pandas==2.2.2
+gunicorn==21.2.0
